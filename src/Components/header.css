@@ -1,0 +1,67 @@
+
+#head{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1%;
+    top: 0;
+    left: 0;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 1%;
+    
+    background-color: white; /* 원하는 배경색으로 변경 가능 */
+    z-index: 1000; /* 다른 콘텐츠 위에 레이어를 올리기 위한 z-index 값 */
+    
+}
+
+#head-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    padding-top: 2.5%;
+    border-bottom: 1px solid gray;
+}
+
+
+.head_li-sub1{
+    display: inline;
+    /* border: 1px solid black; */
+}
+
+.head_li-sub1-link{
+    text-decoration: none;
+    color: black;
+}
+
+.head_li-sub2{
+    display: inline;
+    /* border: 1px solid black; */
+}
+.head-3{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+}
+
+.head_li-sub1:nth-child(2),
+.head_li-sub1:nth-child(3),
+.head_li-sub1:nth-child(4) {
+    margin-left: 40px; /* Increase spacing for specific items */
+}
+
+.head_li-sub2:nth-child(2),
+.head_li-sub2:nth-child(3) {
+    margin-left: 20px; /* Increase spacing for specific items */
+}
+
+
+#head-name{
+    color: black;
+}
+
+#head-name-link{
+    text-decoration: none;
+}
