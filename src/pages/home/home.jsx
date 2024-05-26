@@ -13,7 +13,7 @@ const Home = () => {
             </div>
             <div id="buttons">
             <Link to="/what"><Button id="button1"variant="contained" size="large">What is Retire Plan?</Button></Link>
-                <Button id="button2" variant="contained">은퇴자금 계산하기</Button>
+            <Link to="/calculate"><Button id="button2"variant="contained" size="large">은퇴자금 계산하기</Button></Link>
             </div>
             <div className="snow2"></div>
             <div className="snow3"></div>

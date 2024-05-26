@@ -31,7 +31,7 @@
     /* border: 1px solid black; */
 }
 
-.head_li-sub1-link{
+.head_li-sub1-link,.head_li-sub2-link{
     text-decoration: none;
     color: black;
 }

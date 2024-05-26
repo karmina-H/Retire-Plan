@@ -1,3 +1,6 @@
 #calculate-container{
     margin-top: 7%;
 }
+#cal-content{
+    display: flex;
+}

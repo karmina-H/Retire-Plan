@@ -1,8 +1,11 @@
 import React from "react";
 import './header.css';
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import GoogleLoginButton from "./googleLoginButton";
 
 const Header = () => {
+    const [isLogin, setLogin] = useState(false);
     return (
         <div id="head-container">
             <header id="head">
@@ -20,8 +23,12 @@ const Header = () => {
                 <div className="head-3">
                     <ul className="head_li">
                         <li className="head_li-sub2">icon1</li>
-                        <li className="head_li-sub2">sign in</li>
-                        <li className="head_li-sub2">button1</li>
+                        {/* <li className="head_li-sub2"><Link to="/sign_in" className="head_li-sub2-link">{ isLogin : sign in</Link></li> */}
+                        <li className="head_li-sub2"> { isLogin ? 
+                        <button className="head_li-sub2-link" onClick={GoogleLoginButton}>sign out</button> :
+                        <button className="head_li-sub2-link" onClick={GoogleLoginButton}>sign in</button>}
+                        </li> 
+                        <li className="head_li-sub2">my</li>
                     </ul>
                 </div>
             </header>
@@ -30,3 +37,4 @@ const Header = () => {
 }
 
 export default Header;
+
