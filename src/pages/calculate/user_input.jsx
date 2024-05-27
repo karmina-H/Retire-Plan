@@ -1,10 +1,19 @@
+import { Link } from 'react-router-dom';
 import './user_input.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 
 const User_input = (props) => {
     const [current_page, setCurrent_page] = useState(1);
     const [isValidInput, setIsValidInput] = useState(false); // 수정
+
+    const user_state ={
+        start_age: props.start_age,
+        working_years: props.working_years,
+        initial_salary_before_tax: props.initial_salary_before_tax,
+        startneeded_amount_age: props.startneeded_amount_age
+        }
+
 
     const nextPage = () => {
         if (isValidInput && current_page < 4) {
@@ -23,7 +32,7 @@ const User_input = (props) => {
             
             <div>
                 <Back_button current_page={current_page} prevPage={prevPage} />
-                {current_page === 4 ? <Cal_button isValidInput={isValidInput}/> : <Next_button nextPage={nextPage} isValidInput={isValidInput} />}
+                {current_page === 4 ? <Link to="/result" props = {user_state}><Cal_button isValidInput={isValidInput}/></Link> : <Next_button nextPage={nextPage} isValidInput={isValidInput} />}
             </div>
         </div>
     );
@@ -33,8 +42,8 @@ const Next_button = ({ nextPage, isValidInput }) => {
     return <button onClick={nextPage} disabled={!isValidInput}>다음</button>;
 };
 
-const Cal_button = ({isValidInput}) => {
-    return <Link to="/result" ><button disabled={!isValidInput}>계산하기</button></Link>;
+const Cal_button = ({isValidInput, Linktoresult}) => {
+    return <button onClick={Linktoresult} isabled={!isValidInput}>계산하기</button>
 };
 
 const Back_button = ({ current_page, prevPage }) => {
