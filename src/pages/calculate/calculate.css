@@ -1,6 +1,16 @@
 #calculate-container{
+    display: flex;
+}
+
+#cal_outer{
     margin-top: 7%;
 }
-#cal-content{
-    display: flex;
+
+
+#cal-content1{
+    width: 50%;
+}
+
+#cal-content2{
+    width: 50%;
 }

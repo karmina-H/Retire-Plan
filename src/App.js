@@ -10,15 +10,14 @@ import Enter from './pages/Enterprise/enter';
 import Planning from './pages/planning/planning';
 import Pricing from './pages/pricing/pricing';
 import Sign_in from './pages/signin/sign_in';
+import Result from './pages/result/result';
 
-import { useState } from 'react';
 
 function App() {
-  const [rock, setRock] = useState(false);
   return (
       <div>
         <BrowserRouter>
-          <Header rock = {rock}/>
+          <Header />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/what" element={<What />} />
@@ -28,6 +27,7 @@ function App() {
               <Route path="/planning" element={<Planning />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/sign_in" element={<Sign_in />} />
+              <Route path="/result" element={<Result />} />
            </Routes>
         </BrowserRouter>
       </div>
