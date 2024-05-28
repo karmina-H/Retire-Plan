@@ -11,7 +11,6 @@ const Calculate = () => {
     const [start_age, setStart_age] = useState(0); //입사연령
     const [working_years, setworking_years] = useState(0); //근무기간
     const [initial_salary_before_tax, setinitial_salary_before_tax] = useState(0); //초봉
-    const [startneeded_amount_age, setstartneeded_amount_age] = useState(0); 
     const [retiremonet_age, setRetirement_age] = useState(0);//은퇴연령
 
     const [islast , setIslast] = useState(false);
@@ -29,14 +28,13 @@ const Calculate = () => {
                         setRetirement_age={setRetirement_age}//은퇴연령설정
                         setIslast={setIslast}
                     />
-                    {islast && <button><Link to="/result" state={{current_age:current_age, start_age:start_age, working_years:working_years, 
+                    {islast && <button><Link to="/result" state={{current_age:current_age, start_age:start_age,
                     initial_salary_before_tax:initial_salary_before_tax, retiremonet_age:retiremonet_age }}>계산하기</Link></button>}
                 </div>
                 <div id="cal-content2">
                     <User_output
                         current_age={current_age}
                         start_age={start_age}
-                        working_years={working_years}
                         initial_salary_before_tax={initial_salary_before_tax}
                         retiremonet_age={retiremonet_age}
                     />
