@@ -8,6 +8,10 @@ const User_input = (props) => {
     const [isValidInput, setIsValidInput] = useState(false); // 수정
 
 
+    const [hear_current_age, sethear_current_age] = useState(0);
+    const [hear_start_age, sethear_start_age] = useState(0);
+
+
     const nextPage = () => {
         if (isValidInput && current_page < 5) {
             setCurrent_page(prev => prev + 1);
@@ -22,11 +26,31 @@ const User_input = (props) => {
 
     return (
         <div id='user-input-container'>
-            {current_page === 1 && <Getcurrent_age setCurrent_age={props.setCurrent_age} setCurrent_page={setCurrent_page} setIsValidInput={setIsValidInput}/>}
-            {current_page === 2 && <Getage setStart_age={props.setStart_age} setCurrent_page={setCurrent_page} setIsValidInput={setIsValidInput}/>}
-            {current_page === 3 && <Getyears setworking_years={props.setworking_years} setCurrent_page={setCurrent_page} setIsValidInput={setIsValidInput}  />}
-            {current_page === 4 &&  <Getsalary setinitial_salary_before_tax={props.setinitial_salary_before_tax} setCurrent_page={setCurrent_page} setIsValidInput={setIsValidInput}/>}
-            {current_page === 5 && <Getretire_age setRetirement_age={props.setRetirement_age} setCurrent_page={setCurrent_page} setIsValidInput={setIsValidInput} setIslast={props.setIslast}/>}
+            {current_page === 1 && <Getcurrent_age 
+                                        setCurrent_age={props.setCurrent_age} 
+                                        setCurrent_page={setCurrent_page} 
+                                        setIsValidInput={setIsValidInput} 
+                                        sethear_current_age={sethear_current_age}/>}
+            {current_page === 2 && <Getage 
+                                        setStart_age={props.setStart_age} 
+                                        setCurrent_page={setCurrent_page} 
+                                        setIsValidInput={setIsValidInput} 
+                                        hear_current_age={hear_current_age} 
+                                        sethear_start_age={sethear_start_age}/>}
+            {current_page === 3 && <Getyears 
+                                        setworking_years={props.setworking_years} 
+                                        setCurrent_page={setCurrent_page} 
+                                        setIsValidInput={setIsValidInput}  />}
+            {current_page === 4 &&  <Getsalary 
+                                        setinitial_salary_before_tax={props.setinitial_salary_before_tax} 
+                                        setCurrent_page={setCurrent_page} 
+                                        setIsValidInput={setIsValidInput}/>}
+            {current_page === 5 && <Getretire_age 
+                                        setRetirement_age={props.setRetirement_age} 
+                                        setCurrent_page={setCurrent_page} 
+                                        setIsValidInput={setIsValidInput} 
+                                        setIslast={props.setIslast}
+                                        hear_start_age={hear_start_age}/>}
            
             
             <div>
@@ -60,13 +84,14 @@ const Getage = (props) => {
             props.setStart_age(value);
             setErrorMessage("");
             props.setIsValidInput(true);
+            props.sethear_start_age(value);
         } else {
             setErrorMessage("올바른 숫자를 입력하세요");
             props.setIsValidInput(false);
         }
     };
 
-    const ages = Array.from({ length: 70 }, (_, i) => i + 1);
+    const ages = Array.from({ length: 70 }, (_, i) => parseInt(props.hear_current_age) + (i + 1));
 
     return (
         <div>
@@ -164,6 +189,7 @@ const Getcurrent_age = (props) => {
         const value = e.target.value;
         if (validatePositiveNumber(value)) {
             props.setCurrent_age(value);
+            props.sethear_current_age(value);
             setErrorMessage("");
             props.setIsValidInput(true);
         } else {
@@ -172,7 +198,7 @@ const Getcurrent_age = (props) => {
         }
     };
 
-    const ages = Array.from({ length: 70 }, (_, i) => i + 1);
+    const ages = Array.from({ length: 70 }, (_, i) => parseInt(props.hear_start_age)+(i + 1));
 
     return (
         <div>
@@ -212,7 +238,7 @@ const Getretire_age = (props) => {
         }
     };
 
-    const ages = Array.from({ length: 70 }, (_, i) => i + 1);
+    const ages = Array.from({ length: 70 }, (_, i) => i + parseInt(props.hear_start_age)+(i + 1));
 
     return (
         <div>
