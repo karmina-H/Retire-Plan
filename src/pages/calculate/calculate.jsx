@@ -29,7 +29,7 @@ const Calculate = () => {
                         setIslast={setIslast}
                     />
                     {islast && <button><Link to="/result" state={{current_age:current_age, start_age:start_age,
-                    initial_salary_before_tax:initial_salary_before_tax, retiremonet_age:retiremonet_age }}>계산하기</Link></button>}
+                    initial_salary_before_tax:initial_salary_before_tax, retiremonet_age:retiremonet_age }}>확인</Link></button>}
                 </div>
                 <div id="cal-content2">
                     <User_output

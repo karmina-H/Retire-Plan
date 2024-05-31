@@ -21,7 +21,7 @@ const Getage = (props) => {
 
     return (
         <div>
-            시작 나이를 선택하세요(만 나이)
+            입사 나이를 선택하세요(만 나이)
             <select onChange={handleSelectChange}>
                 <option value="">나이 선택</option>
                 {ages.map(age => (

@@ -2,7 +2,7 @@ import React from "react";
 import './header.css';
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import GoogleLoginButton from "./googleLoginButton";
+
 
 const Header = () => {
     const [isLogin, setLogin] = useState(false);
@@ -25,8 +25,8 @@ const Header = () => {
                         <li className="head_li-sub2">icon1</li>
                         {/* <li className="head_li-sub2"><Link to="/sign_in" className="head_li-sub2-link">{ isLogin : sign in</Link></li> */}
                         <li className="head_li-sub2"> { isLogin ? 
-                        <button className="head_li-sub2-link" onClick={GoogleLoginButton}>sign out</button> :
-                        <button className="head_li-sub2-link" onClick={GoogleLoginButton}>sign in</button>}
+                        <button className="head_li-sub2-link">sign out</button> :
+                        <button className="head_li-sub2-link" ><Link to="/sign_in">sign in</Link></button>}
                         </li> 
                         <li className="head_li-sub2">my</li>
                     </ul>

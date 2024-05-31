@@ -1,25 +1,22 @@
 import React from 'react';
-import { GoogleLogin } from "@react-oauth/google";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode"; // Update import to named import
 
-const GoogleLoginButton = () => {
-  const clientId = "YOUR_CLIENT_ID_HERE"; // Make sure to add your actual client ID here
+const GoogleLoginButton = ({ isLogin, handleLoginLogout }) => {
+    const handleClick = () => {
+        if (isLogin) {
+            // 로그아웃 처리
+            handleLoginLogout();
+            window.location.href = 'https://localhost:5000/logout';
+        } else {
+            // 로그인 처리
+            window.location.href = 'https://localhost:5000/login';
+        }
+    };
 
-  return (
-    <>
-      <GoogleOAuthProvider clientId={clientId}>
-        <GoogleLogin
-          onSuccess={credentialResponse => {
-            console.log(jwtDecode(credentialResponse.credential)); // Update usage to named function
-          }}
-          onError={() => {
-            console.log("Login Failed");
-          }}
-        />
-      </GoogleOAuthProvider>
-    </>
-  );
+    return (
+        <button className="head_li-sub2-link" onClick={handleClick}>
+            {isLogin ? 'Sign out' : 'Sign in'}
+        </button>
+    );
 };
 
 export default GoogleLoginButton;

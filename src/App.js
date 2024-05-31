@@ -11,6 +11,7 @@ import Planning from './pages/planning/planning';
 import Pricing from './pages/pricing/pricing';
 import Sign_in from './pages/signin/sign_in';
 import Result from './pages/result/result';
+import Chart_result from './pages/result/chart_result';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/sign_in" element={<Sign_in />} />
               <Route path="/result" element={<Result />} />
+              <Route path="/chart_result" element={<Chart_result />} />
            </Routes>
         </BrowserRouter>
       </div>
